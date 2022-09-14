@@ -1,0 +1,19 @@
+name: ${name}
+version: ${version}
+description: ${description}
+author: ${author}
+website: ${url}
+api-version: 1.18
+
+main: ${mainClass}
+
+commands:
+    rules:
+        description: Display the server rules
+        permission: worldinvestigator.rules
+        usage: /<command>
+
+permissions:
+    worldinvestigator.rules:
+        description: can display rules
+        default: true
