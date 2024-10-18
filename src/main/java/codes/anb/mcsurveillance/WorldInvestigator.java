@@ -1,4 +1,4 @@
-package codes.anb.mchat;
+package codes.anb.mcsurveillance;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -28,8 +28,7 @@ public class WorldInvestigator extends JavaPlugin implements CommandExecutor {
             player.sendMessage(
                     "§f    * The only allowed mods are Replay Mod and Optifine (No using the Replay Mod to cheat)");
             player.sendMessage(
-                    "§f    * The server has a plugin installed to monitor everything anyone does. Don't try greifing; it will be discovered");
-            player.sendMessage("§f    * The admins or owner have the final say");
+                    "§f    * The server has a plugin installed to monitor everything anyone does, so please don't try greifing");
             return true;
         }
         return false;
@@ -39,6 +38,12 @@ public class WorldInvestigator extends JavaPlugin implements CommandExecutor {
     public void onEnable() {
         WorldInvestigator.instance = this;
         getDataFolder().mkdir();
+        if (!DB.init()) {
+            Bukkit.getLogger().warning("Error loading database");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
+
         LogWriter.get().init();
         // TODO: Make this async
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {

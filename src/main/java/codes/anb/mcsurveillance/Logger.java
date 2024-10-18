@@ -1,4 +1,4 @@
-package codes.anb.mchat;
+package codes.anb.mcsurveillance;
 
 public class Logger {
   private static Logger instance;

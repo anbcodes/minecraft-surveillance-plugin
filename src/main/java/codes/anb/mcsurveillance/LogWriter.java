@@ -1,4 +1,4 @@
-package codes.anb.mchat;
+package codes.anb.mcsurveillance;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -34,9 +34,9 @@ public class LogWriter {
   }
 
   public void write(String player, String action, String object) {
-    synchronized (toWrite) {
-      toWrite.add("[" + java.time.LocalDateTime.now() + "]" + " " + player + ", " + action + ", " + object + "\n");
-    }
+    // synchronized (toWrite) {
+    //   toWrite.add("[" + java.time.LocalDateTime.now() + "]" + " " + player + ", " + action + ", " + object + "\n");
+    // }
   }
 
   public void commit() {
